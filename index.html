@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自動調整學習速率 — 自學簡報</title>
+  <link rel="stylesheet" href="all.css" />
+</head>
+<body>
+
+  <!-- 信箱區：黑色背景，置中 16:9 舞台 -->
+  <div class="pres-outer">
+    <div class="pres-stage">
+
+      <!-- 頂部狀態列 -->
+      <header class="top-bar">
+        <div class="course-title">🎓 自動調整學習速率</div>
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="slide-counter" id="slideCounter">1 / 1</div>
+      </header>
+
+      <!-- 主投影片區 -->
+      <main class="slide-main" id="slideMain">
+        <button class="nav-btn prev-btn" id="prevBtn" aria-label="上一頁">&#8592;</button>
+        <div class="slide-viewport" id="slideViewport">
+          <!-- 由 all.js 動態填入 -->
+        </div>
+        <button class="nav-btn next-btn" id="nextBtn" aria-label="下一頁">&#8594;</button>
+      </main>
+
+      <!-- 底部章節導覽點 -->
+      <nav class="dot-nav" id="dotNav" aria-label="章節導覽"></nav>
+
+    </div><!-- /.pres-stage -->
+  </div><!-- /.pres-outer -->
+
+  <!-- Modal 覆蓋層（互動圖解展開用，fixed 覆蓋全視口） -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="關閉">✕</button>
+      <canvas id="modalCanvas" width="560" height="400"></canvas>
+      <p class="modal-caption" id="modalCaption"></p>
+    </div>
+  </div>
+
+  <!-- Three.js r128 全局建置版 + OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="all.js"></script>
+</body>
+</html>
